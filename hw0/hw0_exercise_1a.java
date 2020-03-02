@@ -1,4 +1,4 @@
-public class HW0_exercise1a {
+public class hw0_exercise_1a {
     public static void main(String[] args){
         int count=5;
         int i=1;
