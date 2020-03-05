@@ -82,7 +82,7 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
+        //TODO:  fill in method, modify A
         return null;
     }
 
@@ -91,7 +91,7 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
+        //TODO:  fill in method, not modify A
         return null;
     }
 
