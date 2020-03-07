@@ -1,4 +1,5 @@
 package Intlist;
+
 import java.util.Formatter;
 
 /**
@@ -6,7 +7,7 @@ import java.util.Formatter;
  * with a large number of additional methods.
  *
  * @author P. N. Hilfinger, with some modifications by Josh Hug and melaniecebula
- *         [Do not modify this file.]
+ * [Do not modify this file.]
  */
 public class IntList {
     /**
@@ -30,7 +31,7 @@ public class IntList {
      * A List with null rest, and first = 0.
      */
     public IntList() {
-    /* NOTE: public IntList () { }  would also work. */
+        /* NOTE: public IntList () { }  would also work. */
         this(0, null);
     }
 
@@ -87,7 +88,7 @@ public class IntList {
         if (A == null) {
             A.rest = B;
         }
-        while (A.rest != null){
+        while (A.rest != null) {
             A = A.rest;
         }
         A.rest = B;
@@ -106,7 +107,7 @@ public class IntList {
         IntList res = new IntList(A.first, null);
         IntList ptr = res;
         A = A.rest;
-        while (A != null){
+        while (A != null) {
             ptr.rest = new IntList(A.first, null);
             A = A.rest;
             ptr = ptr.rest;
@@ -114,20 +115,6 @@ public class IntList {
         ptr.rest = B;
         return res;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     /**
