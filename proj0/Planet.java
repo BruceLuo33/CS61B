@@ -88,28 +88,15 @@ public class Planet {
         return force_y_allPlanets;
     }
 
-    public double update(double dt,double fX,double fY) {
+    public void update(double dt, double fX, double fY) {
         // index[1] is the x-direction force, index[2] is the y-direction force
         Planet updateIndex = this;
-        double ax = fX*0.1 / updateIndex.mass;
-        double ay = fY*0.1 / updateIndex.mass;
-        double vx = updateIndex.xxVel * 0.1 + ax*dt;
-        double vy = updateIndex.yyVel * 0.1 + ay*dt;
-        double px = updateIndex.xxPos * 0.1 + vx*dt;
-        double py = updateIndex.yyPos * 0.1 + vy*dt;
-        return 0;
+        double ax = fX / updateIndex.mass;
+        double ay = fY / updateIndex.mass;
+        updateIndex.xxVel = updateIndex.xxVel  + ax*dt;
+        updateIndex.yyVel = updateIndex.yyVel + ay*dt;
+        updateIndex.xxPos = updateIndex.xxPos + updateIndex.xxVel*dt;
+        updateIndex.yyPos = updateIndex.yyPos + updateIndex.yyVel*dt;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
