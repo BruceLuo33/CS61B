@@ -65,16 +65,40 @@ public class Planet {
     }
 
     public double calcNetForceExertedByX(Planet[] allPlanets) {
-        Planet calc_NetX = this;
+        Planet calc_Net_X = this;
         int num_PlanetsX = allPlanets.length;
         double force_x_allPlanets = 0;
         for (int i = 0; i<num_PlanetsX; i++) {
-            force_x_allPlanets = force_x_allPlanets + ;
+            if (calc_Net_X != allPlanets[i]) {
+                force_x_allPlanets = force_x_allPlanets + calc_Net_X.calcForceExertedByX(allPlanets[i]);
+            }
         }
+        return force_x_allPlanets;
     }
 
+    public double calcNetForceExertedByY(Planet[] allPlanets) {
+        Planet calc_Net_Y = this;
+        int num_PlanetsY = allPlanets.length;
+        double force_y_allPlanets = 0;
+        for (int i = 0; i<num_PlanetsY; i++) {
+            if (calc_Net_Y != allPlanets[i]) {
+                force_y_allPlanets = force_y_allPlanets + calc_Net_Y.calcForceExertedByY(allPlanets[i]);
+            }
+        }
+        return force_y_allPlanets;
+    }
 
-
+    public double update(double dt,double fX,double fY) {
+        // index[1] is the x-direction force, index[2] is the y-direction force
+        Planet updateIndex = this;
+        double ax = fX*0.1 / updateIndex.mass;
+        double ay = fY*0.1 / updateIndex.mass;
+        double vx = updateIndex.xxVel * 0.1 + ax*dt;
+        double vy = updateIndex.yyVel * 0.1 + ay*dt;
+        double px = updateIndex.xxPos * 0.1 + vx*dt;
+        double py = updateIndex.yyPos * 0.1 + vy*dt;
+        return 0;
+    }
 
 
 
