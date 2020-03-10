@@ -1,7 +1,7 @@
 import examples.StdDraw;
 
 public class NBody {
-/** This class is aim to simulate the law of Universal Graviation*/
+    /** This class is aim to simulate the law of Universal Graviation*/
     public static double readRadius(String filename) {
         In in = new In(filename);
         int number = in.readInt();
@@ -44,8 +44,8 @@ public class NBody {
         StdDraw.clear();
         String imageName = "images/starfield.jpg";
         StdDraw.picture(0,0, imageName);
-        StdDraw.show();
-        StdDraw.pause(2000);
+//        StdDraw.show();
+//        StdDraw.pause(2000);
 //        int count = 0;
         int number = stars.length;
         for (int count = 0; count < number; count++) {
@@ -60,7 +60,7 @@ public class NBody {
             double[] yForces = new double[number];
 //            StdDraw.setScale(-uniRadius, uniRadius);
 //            StdDraw.clear();
-//            StdDraw.picture(0,0, imageName);
+            StdDraw.picture(0,0, imageName);
 //            StdDraw.show();
             for (int count = 0; count < number; count++) {
                 xForces[count] = stars[count].calcNetForceExertedByX(stars);
@@ -71,7 +71,8 @@ public class NBody {
 //                StdDraw.pause(1000);
 //                StdDraw.picture(stars[count].xxPos, stars[count].yyPos, stars[count].imgFileName);
             }
-
+            StdDraw.show();
+            StdDraw.pause(10);
 
 
         }

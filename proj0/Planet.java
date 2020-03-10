@@ -107,7 +107,7 @@ public class Planet {
         tmpName = tmpName + starName.imgFileName;
         StdDraw.picture(starName.xxPos,starName.yyPos, tmpName);
 //        StdDraw.enableDoubleBuffering();
-        StdDraw.show();
+//        StdDraw.show();
     }
 
 
