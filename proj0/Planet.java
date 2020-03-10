@@ -1,3 +1,5 @@
+import examples.StdDraw;
+
 public class Planet {
 
     public double xxPos; /*Its current x position*/
@@ -24,6 +26,7 @@ public class Planet {
         mass = p.mass;
         imgFileName = p.imgFileName;
     }
+
 
     public double calcDistance(Planet p) {
         Planet tmp = this;
@@ -98,5 +101,14 @@ public class Planet {
         updateIndex.xxPos = updateIndex.xxPos + updateIndex.xxVel*dt;
         updateIndex.yyPos = updateIndex.yyPos + updateIndex.yyVel*dt;
     }
+
+    public static void draw(Planet starName) {
+        String tmpName = "images/";
+        tmpName = tmpName + starName.imgFileName;
+        StdDraw.picture(starName.xxPos,starName.yyPos, tmpName);
+//        StdDraw.enableDoubleBuffering();
+        StdDraw.show();
+    }
+
 
 }
