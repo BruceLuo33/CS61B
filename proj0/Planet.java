@@ -90,7 +90,7 @@ public class Planet {
         }
         return force_y_allPlanets;
     }
-    
+
 
     public void update(double dt, double fX, double fY) {
         // index[1] is the x-direction force, index[2] is the y-direction force
