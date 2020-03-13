@@ -103,13 +103,20 @@ public class Planet {
         updateIndex.yyPos = updateIndex.yyPos + updateIndex.yyVel*dt;
     }
 
-    public static void draw(Planet starName) {
+//    public static void draw(Planet starName) {
+//        String tmpName = "images/";
+//        tmpName = tmpName + starName.imgFileName;
+//        StdDraw.picture(starName.xxPos,starName.yyPos, tmpName);
+////        StdDraw.enableDoubleBuffering();
+////        StdDraw.show();
+//    }
+
+    public void draw() {
         String tmpName = "images/";
-        tmpName = tmpName + starName.imgFileName;
-        StdDraw.picture(starName.xxPos,starName.yyPos, tmpName);
+        tmpName = tmpName + this.imgFileName;
+        StdDraw.picture(this.xxPos,this.yyPos, tmpName);
 //        StdDraw.enableDoubleBuffering();
 //        StdDraw.show();
     }
-
 
 }
