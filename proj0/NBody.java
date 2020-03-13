@@ -49,8 +49,10 @@ public class NBody {
 //        int count = 0;
         int number = stars.length;
         for (int count = 0; count < number; count++) {
-            Planet.draw(stars[count]);
+//            Planet.draw(stars[count]);
+            stars[count].draw();
         }
+
 
         //Enable double buffering
         StdDraw.enableDoubleBuffering();
@@ -66,7 +68,8 @@ public class NBody {
                 xForces[count] = stars[count].calcNetForceExertedByX(stars);
                 yForces[count] = stars[count].calcNetForceExertedByY(stars);
                 stars[count].update(dt, xForces[count], yForces[count]);
-                Planet.draw(stars[count]);
+                stars[count].draw();
+//                Planet.draw(stars[count]);
 
 //                StdDraw.pause(1000);
 //                StdDraw.picture(stars[count].xxPos, stars[count].yyPos, stars[count].imgFileName);
