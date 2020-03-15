@@ -1,4 +1,4 @@
-package Intlist;
+package IntList;
 
 import java.util.Formatter;
 
@@ -114,6 +114,22 @@ public class IntList {
         }
         ptr.rest = B;
         return res;
+    }
+
+
+    public static IntList reverse(IntList A) {
+        IntList prev = null;
+        IntList tmp = null;
+        if (A == null) {
+            return prev;
+        }
+        while (A != null) {
+            tmp = A.rest;
+            A.rest = prev;
+            prev = A;
+            A = tmp;
+        }
+        return prev;
     }
 
 
