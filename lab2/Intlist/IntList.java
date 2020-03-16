@@ -13,11 +13,11 @@ public class IntList {
     /**
      * First element of list.
      */
-    public int first;
+    private int first;
     /**
      * Remaining elements of list.
      */
-    public IntList rest;
+    private IntList rest;
 
     /**
      * A List with first FIRST0 and rest REST0.
@@ -100,7 +100,7 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method, not modify A and use new
+        //'TODO:'  fill in method, not modify A and use new
 //        if (A == null) {
 //            return B;
 //        }
@@ -115,6 +115,10 @@ public class IntList {
         ptr.rest = B;
         return res;
     }
+
+
+
+
 
 
     /**
@@ -238,5 +242,6 @@ public class IntList {
         out.format(")");
         return out.toString();
     }
+
 }
 
