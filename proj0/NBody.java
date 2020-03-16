@@ -75,7 +75,7 @@ public class NBody {
 //                StdDraw.picture(stars[count].xxPos, stars[count].yyPos, stars[count].imgFileName);
             }
             StdDraw.show();
-            StdDraw.pause(10);
+//            StdDraw.pause(10);
 
 
         }

@@ -115,6 +115,8 @@ public class Planet {
         String tmpName = "images/";
         tmpName = tmpName + this.imgFileName;
         StdDraw.picture(this.xxPos,this.yyPos, tmpName);
+        StdDraw.pause(10);
+
 //        StdDraw.enableDoubleBuffering();
 //        StdDraw.show();
     }
