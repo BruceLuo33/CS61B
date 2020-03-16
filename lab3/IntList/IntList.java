@@ -83,7 +83,7 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method, modify A and don't use new
+        //TODO: fill in method, modify A and don't use new
         IntList res = A;
         if (A == null) {
             A.rest = B;
@@ -100,7 +100,7 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        //'TODO:'  fill in method, not modify A and use new
+        //TODO: fill in method, not modify A and use new
 //        if (A == null) {
 //            return B;
 //        }
