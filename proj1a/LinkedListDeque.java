@@ -72,29 +72,62 @@ public class LinkedListDeque<T> {
         if (sentinel.next.item == sentinel.item) {
             return null;
         }
-        
-
-        sentinel.next.next.prev = sentinel;
-        sentinel = sentinel.next.next;
+        sentinel.next = sentinel.next.next;
+        sentinel.next.prev = sentinel;
+//        sentinel.next.next.prev = sentinel;
+//        sentinel = sentinel.next.next;
         size-=1;
         return sentinel.next.item;
+    }
+
+    public T removeLast() {
+        if (sentinel.prev.item == sentinel.item) {
+            return null;
+        }
+        sentinel.prev = sentinel.prev.prev;
+//        sentinel.next = sentinel.prev.prev.next;
+        sentinel.prev.next = sentinel;
+        return sentinel.prev.item;
+    }
+
+    public T get(int index) {
+        if (sentinel.prev.item == sentinel.item) {
+            return null;
+        }
+        if (index > size - 1) {
+            return null;
+        }
+        for (int i = 0; i <= index; i++) {
+            sentinel.next = sentinel.next.next;
+            sentinel.next.prev = sentinel;
+        }
+        return sentinel.next.item;
+    }
+
+    public T getRecursive(int index) {
+        if (sentinel.prev.item == sentinel.item) {
+            return null;
+        }
+        if (index > size - 1) {
+            return null;
+        }
+        int cnt = 0;
+        return getRecursiveHelper(cnt, sentinel, index);
 
     }
 
-//    public T removeLast() {
-//
-//    }
-
-//    public T get(int index) {
-//
-//    }
-
-//    public T getRecursive(int index) {
-//
-//    }
+    public T getRecursiveHelper(int cnt, TNode sentinel, int index) {
+        if (cnt == index) {
+            return sentinel.next.item;
+        }
+        return getRecursiveHelper(cnt+1, sentinel.next, index);
+    }
 
     public static void main(String[] args) {
+        /* Create a null list */
 //        LinkedListDeque<Integer> L = new LinkedListDeque<>();
+
+        /* Create a Integer list of [6, 10, 5, 20,30,40] */
         LinkedListDeque<Integer> L = new LinkedListDeque<>(5);
         L.addFirst(10);
         L.addLast(20);
@@ -103,9 +136,12 @@ public class LinkedListDeque<T> {
         L.addFirst(6);
 //        L.printDeque();
         System.out.println(L.isEmpty());
-        L.removeFirst();
-        System.out.println(L.removeFirst());
-//        System.out.println("Passed");
+//        System.out.println("The last item after the removeFirst function is: "+ L.removeFirst());
+//        System.out.println("The last item after the removeLast function is: "+ L.removeLast());
+        int Index = 2;
+//        System.out.println("The item in index "+ Index + " is " + L.get(Index));
+//        System.out.println("The item in index "+ Index + " is " + L.getRecursive(Index));
+        System.out.println("Passed");
     }
 
 }
