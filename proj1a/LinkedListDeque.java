@@ -123,25 +123,25 @@ public class LinkedListDeque<T> {
         return getRecursiveHelper(cnt+1, sentinel.next, index);
     }
 
-    public static void main(String[] args) {
-        /* Create a null list */
-//        LinkedListDeque<Integer> L = new LinkedListDeque<>();
-
-        /* Create a Integer list of [6, 10, 5, 20,30,40] */
-        LinkedListDeque<Integer> L = new LinkedListDeque<>(5);
-        L.addFirst(10);
-        L.addLast(20);
-        L.addLast(30);
-        L.addLast(40);
-        L.addFirst(6);
-//        L.printDeque();
-        System.out.println(L.isEmpty());
-//        System.out.println("The last item after the removeFirst function is: "+ L.removeFirst());
-//        System.out.println("The last item after the removeLast function is: "+ L.removeLast());
-        int Index = 2;
-//        System.out.println("The item in index "+ Index + " is " + L.get(Index));
-//        System.out.println("The item in index "+ Index + " is " + L.getRecursive(Index));
-        System.out.println("Passed");
-    }
+//    public static void main(String[] args) {
+//        /* Create a null list */
+////        LinkedListDeque<Integer> L = new LinkedListDeque<>();
+//
+//        /* Create a Integer list of [6, 10, 5, 20,30,40] */
+//        LinkedListDeque<Integer> L = new LinkedListDeque<>(5);
+//        L.addFirst(10);
+//        L.addLast(20);
+//        L.addLast(30);
+//        L.addLast(40);
+//        L.addFirst(6);
+////        L.printDeque();
+//        System.out.println(L.isEmpty());
+////        System.out.println("The last item after the removeFirst function is: "+ L.removeFirst());
+////        System.out.println("The last item after the removeLast function is: "+ L.removeLast());
+//        int Index = 2;
+////        System.out.println("The item in index "+ Index + " is " + L.get(Index));
+////        System.out.println("The item in index "+ Index + " is " + L.getRecursive(Index));
+//        System.out.println("Passed");
+//    }
 
 }

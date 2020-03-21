@@ -20,7 +20,7 @@ public class ArrayDeque<T> {
         return (idx - 1 + items.length) % items.length;
     }
 
-    public void resize(int capacity){
+    private void resize(int capacity){
         /* The nextIndex point at the next place to add item in front of the entire array.
         * Thus, to arrange the old array to the resize array, the pointer should go back to the
         * place with item, such as int/char, then loop "size" times to reach the end of the array,
@@ -57,11 +57,11 @@ public class ArrayDeque<T> {
         size += 1;
     }
 
-    public boolean isFull() {
+    private boolean isFull() {
         return size == items.length;
     }
 
-    public boolean isSparse() {
+    private boolean isSparse() {
         return size < items.length / 4;
     }
 
@@ -82,7 +82,7 @@ public class ArrayDeque<T> {
         System.out.println();
     }
 
-    public T getFirst() {
+    private T getFirst() {
         return items[addOne(nextFirst)];
     }
 
@@ -97,7 +97,7 @@ public class ArrayDeque<T> {
         return x;
     }
 
-    public T getLast() {
+    private T getLast() {
         return items[deleteOne(nextLast)];
     }
 
