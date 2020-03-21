@@ -16,24 +16,24 @@ public class LinkedListDeque<T> {
     private int size;
     private TNode sentinel;
     /* Initialization for an empty LinkedListDeque */
-//    public LinkedListDeque() {
-//        sentinel = new TNode(null,(T)"null",null);
-//        sentinel.prev = sentinel;
-//        sentinel.next = sentinel;
-////        sentinel.next = new TNode(sentinel,(T)"null",sentinel);
-//        size = 0;
-//    }
-//
-//    /* The first item(if it exists) is at sentinel.next. */
-//    public LinkedListDeque(T t) {
-//        T t1 = null;
-//        sentinel =  new TNode(null, (T)"null",null);
-//        sentinel.next = new TNode(sentinel, t,sentinel);
-//        sentinel.prev =  sentinel.next;
-////        sentinel.next.next = sentinel.prev;
-//        size = 1;
-//        System.out.println("The new size is: "+size);
-//    }
+    public LinkedListDeque() {
+        sentinel = new TNode(null,(T)"null",null);
+        sentinel.prev = sentinel;
+        sentinel.next = sentinel;
+//        sentinel.next = new TNode(sentinel,(T)"null",sentinel);
+        size = 0;
+    }
+
+    /* The first item(if it exists) is at sentinel.next. */
+    public LinkedListDeque(T t) {
+        T t1 = null;
+        sentinel =  new TNode(null, (T)"null",null);
+        sentinel.next = new TNode(sentinel, t,sentinel);
+        sentinel.prev =  sentinel.next;
+//        sentinel.next.next = sentinel.prev;
+        size = 1;
+        System.out.println("The new size is: "+size);
+    }
 
     public void addFirst(T item) {
         sentinel.next = new TNode(sentinel, item, sentinel.next);
