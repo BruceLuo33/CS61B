@@ -1,4 +1,8 @@
-public class LinkedListDeque<T> {
+import java.util.LinkedList;
+
+//public class LinkedListDeque<T> extends LinkedList<T> implements Deque<T>{
+public class LinkedListDeque<T> implements Deque<T>{
+
 
     private class TNode {
         public TNode prev;
@@ -35,12 +39,14 @@ public class LinkedListDeque<T> {
         System.out.println("The new size is: "+size);
     }
 
+    @Override
     public void addFirst(T item) {
         sentinel.next = new TNode(sentinel, item, sentinel.next);
         sentinel.next.next.prev = sentinel.next;
         size+=1;
     }
 
+    @Override
     public void addLast(T item) {
         sentinel.prev = new TNode(sentinel.prev, item, sentinel);
         sentinel.prev.prev.next = sentinel.prev;
@@ -49,14 +55,17 @@ public class LinkedListDeque<T> {
         size+=1;
     }
 
+    @Override
     public boolean isEmpty() {
         return size==0;
     }
 
+    @Override
     public int size() {
         return  size;
     }
 
+    @Override
     public void printDeque() {
         if (sentinel.next.item == sentinel.item) {
             System.out.println("It is a null list.");
@@ -68,28 +77,36 @@ public class LinkedListDeque<T> {
         }
     }
 
+    @Override
     public T removeFirst() {
         if (sentinel.next.item == sentinel.item) {
             return null;
         }
+        T tmp = sentinel.next.item;
         sentinel.next = sentinel.next.next;
         sentinel.next.prev = sentinel;
 //        sentinel.next.next.prev = sentinel;
 //        sentinel = sentinel.next.next;
         size-=1;
-        return sentinel.next.item;
+        return tmp;
+//        return sentinel.next.item;
     }
 
+    @Override
     public T removeLast() {
         if (sentinel.prev.item == sentinel.item) {
             return null;
         }
+        T tmp = sentinel.prev.item;
         sentinel.prev = sentinel.prev.prev;
 //        sentinel.next = sentinel.prev.prev.next;
         sentinel.prev.next = sentinel;
-        return sentinel.prev.item;
+//        return sentinel.prev.item;
+        return tmp;
     }
 
+
+    @Override
     public T get(int index) {
         if (sentinel.prev.item == sentinel.item) {
             return null;
@@ -104,6 +121,7 @@ public class LinkedListDeque<T> {
         return sentinel.next.item;
     }
 
+//    @Override
     public T getRecursive(int index) {
         if (sentinel.prev.item == sentinel.item) {
             return null;
