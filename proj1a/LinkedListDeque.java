@@ -1,7 +1,9 @@
 import java.util.LinkedList;
 
 //public class LinkedListDeque<T> extends LinkedList<T> implements Deque<T>{
-public class LinkedListDeque<T> implements Deque<T>{
+public class LinkedListDeque<T>{
+
+//public class LinkedListDeque<T> implements Deque<T>{
 
 
     private class TNode {
@@ -39,14 +41,14 @@ public class LinkedListDeque<T> implements Deque<T>{
         System.out.println("The new size is: "+size);
     }
 
-    @Override
+//    @Override
     public void addFirst(T item) {
         sentinel.next = new TNode(sentinel, item, sentinel.next);
         sentinel.next.next.prev = sentinel.next;
         size+=1;
     }
 
-    @Override
+//    @Override
     public void addLast(T item) {
         sentinel.prev = new TNode(sentinel.prev, item, sentinel);
         sentinel.prev.prev.next = sentinel.prev;
@@ -55,17 +57,17 @@ public class LinkedListDeque<T> implements Deque<T>{
         size+=1;
     }
 
-    @Override
+//    @Override
     public boolean isEmpty() {
         return size==0;
     }
 
-    @Override
+//    @Override
     public int size() {
         return  size;
     }
 
-    @Override
+//    @Override
     public void printDeque() {
         if (sentinel.next.item == sentinel.item) {
             System.out.println("It is a null list.");
@@ -77,7 +79,7 @@ public class LinkedListDeque<T> implements Deque<T>{
         }
     }
 
-    @Override
+//    @Override
     public T removeFirst() {
         if (sentinel.next.item == sentinel.item) {
             return null;
@@ -92,7 +94,7 @@ public class LinkedListDeque<T> implements Deque<T>{
 //        return sentinel.next.item;
     }
 
-    @Override
+//    @Override
     public T removeLast() {
         if (sentinel.prev.item == sentinel.item) {
             return null;
@@ -106,7 +108,7 @@ public class LinkedListDeque<T> implements Deque<T>{
     }
 
 
-    @Override
+//    @Override
     public T get(int index) {
         if (sentinel.prev.item == sentinel.item) {
             return null;

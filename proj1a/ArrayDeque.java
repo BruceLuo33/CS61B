@@ -1,4 +1,7 @@
-public class ArrayDeque<T> implements Deque<T>{
+
+
+//public class ArrayDeque<T> implements Deque<T>{
+public class ArrayDeque<T> {
     /* Starting size of the array should be 8 */
     private T[] items;
     private int size;
@@ -36,7 +39,7 @@ public class ArrayDeque<T> implements Deque<T>{
         nextLast = size;
     }
 
-    @Override
+//    @Override
     public void addFirst(T item) {
         if (isFull()) {
             resize(size * 2);
@@ -47,8 +50,8 @@ public class ArrayDeque<T> implements Deque<T>{
 //        nextFirst -= 1;
         size += 1;
     }
-
-    @Override
+//
+//    @Override
     public void addLast(T item) {
         if (isFull()) {
             resize(size * 2);
@@ -67,17 +70,17 @@ public class ArrayDeque<T> implements Deque<T>{
         return size < items.length / 4;
     }
 
-    @Override
+//    @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
-    @Override
+//    @Override
     public int size() {
         return size;
     }
 
-    @Override
+//    @Override
     public void printDeque() {
         int count = addOne(nextFirst);
         for (int i = 0; i < size; i++) {
@@ -92,7 +95,7 @@ public class ArrayDeque<T> implements Deque<T>{
         return items[addOne(nextFirst)];
     }
 
-    @Override
+//    @Override
     public T removeFirst() {
         if (isSparse()) {
             resize(items.length / 2);
@@ -108,7 +111,7 @@ public class ArrayDeque<T> implements Deque<T>{
         return items[deleteOne(nextLast)];
     }
 
-    @Override
+//    @Override
     public T removeLast() {
         if (isSparse()) {
             resize(items.length / 2);
@@ -121,7 +124,7 @@ public class ArrayDeque<T> implements Deque<T>{
         return x;
     }
 
-    @Override
+//    @Override
     public T get(int index) {
         int tmp = (addOne(nextFirst) + index)  % items.length;
         return items[tmp];
