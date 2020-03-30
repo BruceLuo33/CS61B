@@ -22,5 +22,4 @@ public interface Deque<T> {
 
 
 
-
 }
