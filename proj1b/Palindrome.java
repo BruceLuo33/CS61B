@@ -30,7 +30,7 @@ public class Palindrome {
         return true;
     }
 
-    
+
 //        Deque<Character> PalindromeOne = wordToDeque(word);
 //        Deque<Character> PalindromeTwo = new ArrayDeque<>();
 //        for (int i = 0; i < word.length(); i++) {

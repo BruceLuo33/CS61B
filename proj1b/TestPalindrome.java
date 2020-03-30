@@ -33,6 +33,5 @@ public class TestPalindrome {
     }
 
 
-
 //    Uncomment this class once you've created your Palindrome class.
 }
