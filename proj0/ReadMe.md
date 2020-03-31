@@ -4,7 +4,7 @@ The goal of this project is to give you a crash course in Java.
 
 这个project难度不大，讲义给的很详细。每一个需要的method都写明了目的、结果和参数。在开始project之前，以为这个很难，于是一直拖着慢慢做，但事实上
 只要按着instruction一步一步来，就完全没问题。
-
+ 
 学习总结：
 1. main 函数的args直接就是读取的参数，不再需要初始化；
 2. 在最终作图时，要注意到不要每一次都show以下，会造成拖尾的现像；
