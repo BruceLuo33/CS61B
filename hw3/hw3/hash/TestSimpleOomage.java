@@ -1,10 +1,7 @@
 package hw3.hash;
 
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.*;
 
 import java.util.Set;
 import java.util.HashSet;
@@ -52,7 +49,7 @@ public class TestSimpleOomage {
         assertTrue(hashSet.contains(ooA2));
     }*/
 
-    /* TODO: Uncomment this test after you finish haveNiceHashCode Spread in OomageTestUtility */
+    /* TODO: Uncomment this test after you finish haveNiceHashCodeSpread in OomageTestUtility */
     /*@Test
     public void testRandomOomagesHashCodeSpread() {
         List<Oomage> oomages = new ArrayList<>();
