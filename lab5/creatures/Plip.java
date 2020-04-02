@@ -57,7 +57,15 @@ public class Plip extends Creature {
      * that you get this exactly correct.
      */
     public Color color() {
-        g = 63;
+        r = 99;
+        b = 76;
+        g = 96 * (int) energy + 63;
+        if (g >= 255) {
+            g = 255;
+        }
+        if (g <= 0) {
+            g = 0;
+        }
         return color(r, g, b);
     }
 
@@ -75,6 +83,11 @@ public class Plip extends Creature {
      */
     public void move() {
         // TODO
+        double tmp = energy - 0.15;
+        if ( tmp <= 0) {
+            energy = 0;
+        }
+        else energy -= 0.15;
     }
 
 
@@ -83,6 +96,12 @@ public class Plip extends Creature {
      */
     public void stay() {
         // TODO
+        double tmp = energy + 0.2;
+        if ( tmp >= 2) {
+            energy = 2;
+        }
+        else energy += 0.2;
+
     }
 
     /**
@@ -91,6 +110,9 @@ public class Plip extends Creature {
      * Plip.
      */
     public Plip replicate() {
+        Plip offSpring = new Plip();
+        offSpring.energy = this.energy / 2;
+        this.energy = this.energy / 2;
         return this;
     }
 
