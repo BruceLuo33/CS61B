@@ -1,6 +1,8 @@
 package creatures;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import java.nio.channels.Pipe;
 import java.util.HashMap;
 import java.awt.Color;
 import huglife.Direction;
@@ -10,7 +12,7 @@ import huglife.Impassible;
 import huglife.Empty;
 
 /** Tests the plip class
- *  @authr FIXME
+ *  @authr Yifan
  */
 
 public class TestPlip {
@@ -33,10 +35,11 @@ public class TestPlip {
     @Test
     public void testReplicate() {
         // TODO
-
+        Plip p = new Plip(2);
+        assertEquals(1.0, p.replicate().energy(),0.01);
     }
 
-    //@Test
+    @Test
     public void testChoose() {
 
         // No empty adjacent spaces; stay.

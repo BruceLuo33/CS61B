@@ -6,9 +6,11 @@ import huglife.Action;
 import huglife.Occupant;
 
 import java.awt.Color;
+import java.nio.channels.Pipe;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * An implementation of a motile pacifist photosynthesizer.
@@ -113,7 +115,7 @@ public class Plip extends Creature {
         Plip offSpring = new Plip();
         offSpring.energy = this.energy / 2;
         this.energy = this.energy / 2;
-        return this;
+        return offSpring;
     }
 
     /**
@@ -134,17 +136,48 @@ public class Plip extends Creature {
         Deque<Direction> emptyNeighbors = new ArrayDeque<>();
         boolean anyClorus = false;
         // TODO
+        boolean emptySpace = true;
         // (Google: Enhanced for-loop over keys of NEIGHBORS?)
-        // for () {...}
-
-        if (false) { // FIXME
+        for (Direction k : neighbors.keySet()) {
+            if (!k.name().equals("empty")) {
+                emptySpace = false;
+                emptyNeighbors.addLast(k);
+            }
+        }
+//         for ( Map.Entry<Direction, Occupant> entry: neighbors.entrySet()) {
+//            Direction d = entry.getKey();
+//            Occupant o = entry.getValue();
+//         }
+        if (emptySpace) { // FIXME
             // TODO
+            return new Action(Action.ActionType.STAY);
         }
 
+
         // Rule 2
-        // HINT: randomEntry(emptyNeighbors)
+//         HINT: randomEntry(emptyNeighbors)
+        if (this.energy >= 1) {
+            Plip tmp = this.replicate();
+            Random generator = new Random();
+            Object[] values = emptyNeighbors.toArray();
+            Direction randomD = (Direction) values[generator.nextInt(values.length)];
+            return new Action(Action.ActionType.MOVE, randomD);
+        }
 
         // Rule 3
+        for (Direction d : emptyNeighbors) {
+            if (d.name() == "colorus") {
+                if (Math.random() <= 0.5 || emptyNeighbors.size() == 1) {
+                    return new Action(Action.ActionType.STAY);
+                }
+            }
+        }
+
+        int cnt = emptyNeighbors.size();
+        if (Math.random() ) {
+            return new Action(Action.ActionType.MOVE, )
+        }
+
 
         // Rule 4
         return new Action(Action.ActionType.STAY);
