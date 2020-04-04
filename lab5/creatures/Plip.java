@@ -11,7 +11,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Map;
 import java.util.Random;
-
+import static huglife.HugLifeUtils.randomEntry;
 /**
  * An implementation of a motile pacifist photosynthesizer.
  *
@@ -136,50 +136,51 @@ public class Plip extends Creature {
         Deque<Direction> emptyNeighbors = new ArrayDeque<>();
         boolean anyClorus = false;
         // TODO
-        boolean emptySpace = true;
         // (Google: Enhanced for-loop over keys of NEIGHBORS?)
+        /** k.name() is not equals to neighbors.get(k).name()
+         * 1. k.name() would be BOTTOM/RIGHT/LEFT/TOP
+         *    neighbot.get(k).name will be empty/impassible
+         * 2. More general, the k.name will be the same as parameters in <Direction>
+         *    while the neighbor.get(k).name() will be the same as the main() function given
+         * */
         for (Direction k : neighbors.keySet()) {
-            if (!k.name().equals("empty")) {
-                emptySpace = false;
+//            System.out.println("k,name()" + k.name());
+//            System.out.println(neighbors.get(k).name());
+            if (neighbors.get(k).name().equals("empty")) {
                 emptyNeighbors.addLast(k);
+            } else if (neighbors.get(k).name().equals("clorus")) {
+                anyClorus = true;
             }
+
         }
 //         for ( Map.Entry<Direction, Occupant> entry: neighbors.entrySet()) {
 //            Direction d = entry.getKey();
 //            Occupant o = entry.getValue();
 //         }
-        if (emptySpace) { // FIXME
+        if (emptyNeighbors.size() == 0) { // FIXME
             // TODO
             return new Action(Action.ActionType.STAY);
-        }
+        } else if (energy >= 1) {
+            return new Action(Action.ActionType.REPLICATE, randomEntry(emptyNeighbors));
+        } else if (anyClorus && emptyNeighbors.size()>=1 && Math.random() >= 0.5 ) {
+            return new Action(Action.ActionType.MOVE, randomEntry(emptyNeighbors));
+        } else return new Action(Action.ActionType.STAY);
 
 
         // Rule 2
 //         HINT: randomEntry(emptyNeighbors)
-        if (this.energy >= 1) {
-            Plip tmp = this.replicate();
-            Random generator = new Random();
-            Object[] values = emptyNeighbors.toArray();
-            Direction randomD = (Direction) values[generator.nextInt(values.length)];
-            return new Action(Action.ActionType.MOVE, randomD);
-        }
+//        if (this.energy >= 1) {
+//            Plip tmp = this.replicate();
+//            Random generator = new Random();
+//            Object[] values = emptyNeighbors.toArray();
+//            Direction randomD = (Direction) values[generator.nextInt(values.length)];
+//            return new Action(Action.ActionType.MOVE, randomD);
+//        }
+
 
         // Rule 3
-        for (Direction d : emptyNeighbors) {
-            if (d.name() == "colorus") {
-                if (Math.random() <= 0.5 || emptyNeighbors.size() == 1) {
-                    return new Action(Action.ActionType.STAY);
-                }
-            }
-        }
-
-        int cnt = emptyNeighbors.size();
-        if (Math.random() ) {
-            return new Action(Action.ActionType.MOVE, )
-        }
 
 
         // Rule 4
-        return new Action(Action.ActionType.STAY);
     }
 }
