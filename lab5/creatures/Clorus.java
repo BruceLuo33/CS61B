@@ -50,7 +50,7 @@ public class Clorus extends Creature {
         this(1);
     }
 
-    /**The energy of clorus dont need to be greater than zero.
+    /**The energy of clorus does not need to be greater than zero.
      * Otherwise it will not disappear, but continue to fill in the whole grid.*/
     @Override
     public void move() {
@@ -60,7 +60,8 @@ public class Clorus extends Creature {
 //        }
     }
 
-
+    /**The energy of clorus does not need to be greater than zero.
+     * Otherwise it will not disappear, but continue to fill in the whole grid.*/
     @Override
     public void stay() {
         energy -= 0.01;
