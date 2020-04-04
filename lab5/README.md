@@ -7,7 +7,7 @@ This lab is super suitable for the understanding of Map. Below is my experience 
 3. The Clorus class is similar to the Plip class, but the most important hint is that the energy of Clorus
   could be less than zero. Thus the Clorus creature will not fill in the whole field. 
 4. In the enhanced for-loop, notice that the key.name() will be different with neighbor.get(key).name():
-  1. The key.name() will return TOP/BOTTOM/RIGHT/LEFT, which is defined in the Direction class;
-  2. While the neighbors.get(key).name() will return the value that given in the Test file. For instance, 
+  - The key.name() will return TOP/BOTTOM/RIGHT/LEFT, which is defined in the Direction class;
+  - While the neighbors.get(key).name() will return the value that given in the Test file. For instance, 
   it will return empty/impassible.
 
