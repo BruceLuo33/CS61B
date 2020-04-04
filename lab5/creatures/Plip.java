@@ -113,8 +113,8 @@ public class Plip extends Creature {
      */
     public Plip replicate() {
         Plip offSpring = new Plip();
-        offSpring.energy = this.energy / 2;
-        this.energy = this.energy / 2;
+        offSpring.energy = energy / 2;
+        energy = energy / 2;
         return offSpring;
     }
 
