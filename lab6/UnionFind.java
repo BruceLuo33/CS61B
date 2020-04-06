@@ -1,16 +1,29 @@
 public class UnionFind {
 
     // TODO - Add instance variables?
+    private int[] id;
+    private int size;
+    private int count;
 
     /* Creates a UnionFind data structure holding n vertices. Initially, all
        vertices are in disjoint sets. */
     public UnionFind(int n) {
         // TODO
+        id = new int[n];
+        for (int i = 0; i < n; i++) {
+            id[i] = i;
+        }
+        count = n;
     }
 
     /* Throws an exception if v1 is not a valid index. */
-    private void validate(int vertex) {
+    private void validate(int vertex) throws Exception {
         // TODO
+        if (vertex < count){
+            return;
+        } else {
+            throw new Exception("Vertex " + vertex + " is not a valid index");
+        }
     }
 
     /* Returns the size of the set v1 belongs to. */
@@ -29,7 +42,7 @@ public class UnionFind {
     /* Returns true if nodes v1 and v2 are connected. */
     public boolean connected(int v1, int v2) {
         // TODO
-        return false;
+        return parent(v1) == parent(v2);
     }
 
     /* Connects two elements v1 and v2 together. v1 and v2 can be any valid 
