@@ -1,6 +1,7 @@
 # Lab6 Experience
 
 **Website:** https://sp19.datastructur.es/materials/lab/lab6/lab6
+
 **Descrpition:** In this lab, you’ll create UnionFind which will be used to solve the dynamic connectivity problem.
 As mentioned in discussion “Union Find” is a synonym for “Disjoint Sets”.
 
