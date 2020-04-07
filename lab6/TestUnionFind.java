@@ -7,6 +7,7 @@ public class TestUnionFind {
     public void testBasic() {
         UnionFind uf = new UnionFind(10);
         //Test size
+
         int expected = 1;
         int actural = uf.sizeOf(3);
         assertEquals(expected, actural);
@@ -42,11 +43,24 @@ public class TestUnionFind {
 
         uf.union(6,5);
         uf.union(9,4);
+        assertEquals(4, uf.find(9));
+        uf.union(2,1);
+        assertEquals(2, uf.find(1));
+
+
         uf.union(8,9);
         int expectedParent = 4;
         int acturalParent = uf.parent(8);
         assertEquals(expectedParent, acturalParent);
 
+        uf.union(5,0);
+        uf.union(7,2);
+        uf.union(6,1);
+        expected = 6;
+        actural = uf.find(7);
+        assertEquals(expected, actural);
+
+        assertTrue(uf.connected(1,7));
 
 
 
