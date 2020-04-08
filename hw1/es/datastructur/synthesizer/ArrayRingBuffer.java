@@ -5,7 +5,7 @@ import java.util.Iterator;
 //TODO: Make sure to add the override tag for all overridden methods
 //TODO: Make sure to make this class implement BoundedQueue<T>
 
-public class ArrayRingBuffer<T> implements BoundedQueue{
+public class ArrayRingBuffer<T> implements BoundedQueue<T> {
     /* Index for the next dequeue or peek. */
     private int first;
     /* Index for the next enqueue. */
@@ -21,12 +21,29 @@ public class ArrayRingBuffer<T> implements BoundedQueue{
     public ArrayRingBuffer(int capacity) {
         // TODO: Create new array with capacity elements.
         //       first, last, and fillCount should all be set to 0.
+        first = 0;
+        last = 0;
+        first = 0;
+        rb = (T[]) new Object[capacity];
     }
+
+
+    @Override
+    public int capacity() {
+        return 1;
+    }
+
+    @ Override
+    public int fillCount() {
+        return 1;
+    }
+
 
     /**
      * Adds x to the end of the ring buffer. If there is no room, then
      * throw new RuntimeException("Ring buffer overflow").
      */
+    @Override
     public void enqueue(T x) {
         // TODO: Enqueue the item. Don't forget to increase fillCount and update
         //       last.
@@ -37,6 +54,7 @@ public class ArrayRingBuffer<T> implements BoundedQueue{
      * Dequeue oldest item in the ring buffer. If the buffer is empty, then
      * throw new RuntimeException("Ring buffer underflow").
      */
+    @Override
     public T dequeue() {
         // TODO: Dequeue the first item. Don't forget to decrease fillCount and
         //       update first.
@@ -47,6 +65,7 @@ public class ArrayRingBuffer<T> implements BoundedQueue{
      * Return oldest item, but don't remove it. If the buffer is empty, then
      * throw new RuntimeException("Ring buffer underflow").
      */
+    @Override
     public T peek() {
         // TODO: Return the first item. None of your instance variables should
         //       change.
