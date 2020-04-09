@@ -30,12 +30,14 @@ public class ArrayRingBuffer<T> implements BoundedQueue<T> {
 
     @Override
     public int capacity() {
-        return 1;
+        return rb.length;
     }
 
     @ Override
     public int fillCount() {
+        int L = capacity();
         return 1;
+
     }
 
 
