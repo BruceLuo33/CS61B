@@ -87,5 +87,33 @@ public class ArrayRingBuffer<T> implements BoundedQueue<T> {
 
     // TODO: When you get to part 4, implement the needed code to support
     //       iteration and equals.
+    @Override
+    public Iterator<T> iterator() {
+        return new IterationPrivate();
+    }
+
+    private class IterationPrivate implements Iterator<T> {
+        private T currentLoc;
+        public IterationPrivate() {
+
+        }
+
+        @Override
+        public boolean hasNext() {
+            return true;
+        }
+
+        @Override
+        public T next() {
+            return currentLoc;
+        }
+
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return true;
+    }
+
 }
     // TODO: Remove all comments that say TODO when you're done.
