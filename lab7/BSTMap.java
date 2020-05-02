@@ -1,7 +1,8 @@
+import java.security.Key;
 import java.util.Iterator;
 import java.util.Set;
 
-public class BSTMap<K,V> implements Map61B<K,V>{
+public class BSTMap<K extends Comparable<Key>, V> implements Map61B<K, V>{
     @Override
     public void clear() {
 
@@ -27,6 +28,11 @@ public class BSTMap<K,V> implements Map61B<K,V>{
 
     }
 
+    public void printInOrder() {
+        if () {
+            
+        }
+    }
 
     /**
      * The below three methods are not support
